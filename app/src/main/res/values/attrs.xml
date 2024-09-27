@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="UnlockActivity">
+        <attr name="title" format="string" />
+        <attr name="circleColor" format="color" />
+        <attr name="borderColor" format="color" />
+        <attr name="textColor" format="color" />
+        <attr name="textNumberSize" format="dimension" />
+        <attr name="circleRadius" format="dimension" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="circlePasswordWidth" format="dimension" />
+        <attr name="circlePasswordHeight" format="dimension" />
+        <attr name="distancePasswordHideWithKeyBoard" format="dimension" />
+        <attr name="iconDelete" format="reference" />
+        <attr name="pinDrawableSelected" format="reference" />
+        <attr name="pinDrawableUnselected" format="reference" />
+        <attr name="fontNumberFamily" format="string" />
+        <attr name="fontTitleFamily" format="string" />
+        <attr name="textTitleSize" format="dimension" />
+    </declare-styleable>
+</resources>
