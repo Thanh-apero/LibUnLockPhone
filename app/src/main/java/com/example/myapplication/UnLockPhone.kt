@@ -15,7 +15,7 @@ import androidx.core.content.res.ResourcesCompat
 import com.example.unLockPhone.R
 
 @SuppressLint("ClickableViewAccessibility")
-class UnlockActivity @JvmOverloads constructor(
+class UnLockPhone @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -81,7 +81,7 @@ class UnlockActivity @JvmOverloads constructor(
 
         textPaintTitle.apply {
             color = textColor
-            textSize = this@UnlockActivity.textSizeTitle
+            textSize = this@UnLockPhone.textSizeTitle
             textAlign = Paint.Align.CENTER
             isAntiAlias = true
             fontTitleFamily?.let {
