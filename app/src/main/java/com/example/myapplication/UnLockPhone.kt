@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
+import com.example.unLockPhone.R
 
 @SuppressLint("ClickableViewAccessibility")
 class UnlockActivity @JvmOverloads constructor(
