@@ -47,6 +47,7 @@ class UnLockPhone @JvmOverloads constructor(
     private var frameKeyboardWidth = 0
     private var frameKeyboardHeight = 0
     private var framePasswordHideWidth = 0
+
     private var framePasswordHideHeight = 0
 
     init {
