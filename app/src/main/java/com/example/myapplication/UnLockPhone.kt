@@ -16,12 +16,12 @@ import com.example.unLockPhone.R
 
 @SuppressLint("ClickableViewAccessibility")
 class UnLockPhone @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
+                    context: Context,
+         attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    private val maxPassword = 6
+    private val MaxPassword = 6
     private val numberButtons = mutableMapOf<ButtonPasswords, Rect>()
     private val passwords = mutableListOf<ButtonPasswords>()
     private var circleColor: Int
@@ -42,11 +42,11 @@ class UnLockPhone @JvmOverloads constructor(
     private val textNumberPaint = Paint()
     private val textPaintTitle = Paint()
     private var vectorDelete: Drawable? = null
-    private var vectorPinUnSelect: Drawable? = null
+    private var  vectorPinUnSelect: Drawable? = null
     private var vectorPinSelect: Drawable? = null
     private var frameKeyboardWidth = 0
-    private var frameKeyboardHeight = 0
-    private var framePasswordHideWidth = 0
+    private var  frameKeyboardHeight = 0
+    private var    framePasswordHideWidth = 0
 
     private var framePasswordHideHeight = 0
 
