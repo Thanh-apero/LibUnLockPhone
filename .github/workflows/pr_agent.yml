@@ -1,0 +1,24 @@
+name: Qodo Merge Tools
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, review_requested]
+
+jobs:
+  qodo_merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run Qodo Merge Tools
+        env:
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # Thêm OpenAI key vào repository secrets
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} # Thêm GitHub token vào repository secrets
+          github_action_config.auto_review: "true" # Bật/Tắt auto review
+          github_action_config.auto_describe: "true" # Bật/Tắt auto describe
+          github_action_config.auto_improve: "true" # Bật/Tắt auto improve
+          github_action_config.pr_actions: '["opened", "reopened", "ready_for_review", "review_requested"]'
+        run: |
+          echo "Running Qodo Merge Tools..."
+          # Thêm các lệnh cần thiết để chạy công cụ Qodo Merge tại đây
