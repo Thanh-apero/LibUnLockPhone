@@ -2,6 +2,7 @@ on:
   pull_request:
     types: [opened, reopened, ready_for_review]
   issue_comment:
+
 jobs:
   pr_agent_job:
     if: ${{ github.event.sender.type != 'Bot' }}
@@ -10,11 +11,13 @@ jobs:
       issues: write
       pull-requests: write
       contents: write
-    name: Run pr agent on every pull request, respond to user comments
+    name: Run PR agent on every pull request, respond to user comments
     steps:
       - name: PR Agent action step
         id: pragent
         uses: duypk-apero/pr-agent@main
+        with:
+          model: "google_ai_studio/gemini-1.5-flash"
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
