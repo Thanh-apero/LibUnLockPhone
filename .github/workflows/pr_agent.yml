@@ -1,11 +1,13 @@
 name: Run Qodo-Cover
-
 on:
   pull_request:
     branches:
       - main
     types:
-      - opened # Trigger only when a pull request is opened
+      - opened
+      - reopened
+      - synchronize # Thêm sự kiện này để chạy khi có thay đổi mới trong PR
+
 
 permissions:
   pull-requests: write # Allows commenting on pull requests
@@ -26,6 +28,7 @@ jobs:
 
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          github_action_config.auto_review: "true"
 
       - name: Debug Git Repository
         run: |
