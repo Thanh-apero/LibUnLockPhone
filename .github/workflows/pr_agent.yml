@@ -17,3 +17,5 @@ jobs:
         uses: Thanh-apero/pr-agent@main
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          OPENAI.API_TYPE: 'gemini'
