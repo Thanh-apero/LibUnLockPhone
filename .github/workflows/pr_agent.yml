@@ -1,24 +1,25 @@
-name: Qodo Merge Tools
+name: Run Qodo-Cover
 
 on:
   pull_request:
-    types: [opened, reopened, ready_for_review, review_requested]
+    branches:
+      - main
+    types:
+      - opened # Trigger only when a pull request is opened
+
+permissions:
+  pull-requests: write # Allows commenting on pull requests
+  contents: write # Allows reading and writing files
 
 jobs:
-  qodo_merge:
-    runs-on: ubuntu-latest
+  run-qodo-cover:
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - name: qodo-cover
+        uses: qodo-ai/qodo-ci/.github/actions/qodo-cover@v0.1.1
+        with:
+          github_token: ${{ secrets.GIT_TOKEN }}
+          model: gpt-4o
 
-      - name: Run Qodo Merge Tools
         env:
-          OPENAI_KEY: "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" # Thêm OpenAI key vào repository secrets
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} # Thêm GitHub token vào repository secrets
-          github_action_config.auto_review: "true" # Bật/Tắt auto review
-          github_action_config.auto_describe: "true" # Bật/Tắt auto describe
-          github_action_config.auto_improve: "true" # Bật/Tắt auto improve
-          github_action_config.pr_actions: '["opened", "reopened", "ready_for_review", "review_requested"]'
-        run: |
-          echo "Running Qodo Merge Tools..."
-          # Thêm các lệnh cần thiết để chạy công cụ Qodo Merge tại đây
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
