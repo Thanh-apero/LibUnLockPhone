@@ -1,41 +1,21 @@
-name: Run Qodo-Cover
 on:
   pull_request:
-    branches:
-      - main
-    types:
-      - opened
-      - reopened
-      - synchronize # Thêm sự kiện này để chạy khi có thay đổi mới trong PR
-
-
-permissions:
-  pull-requests: write # Allows commenting on pull requests
-  contents: write # Allows reading and writing files
-
+    types: [opened, reopened, ready_for_review]
+  issue_comment:
 jobs:
-  run-qodo-cover:
-    runs-on: ubuntu-22.04
+  pr_agent_job:
+    if: ${{ github.event.sender.type != 'Bot' }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+      contents: write
+    name: Run pr agent on every pull request, respond to user comments
     steps:
-      - name: Checkout repository  # Thêm bước này để lấy mã nguồn
-        uses: actions/checkout@v3
-
-      - name: Run qodo-cover
-        uses: qodo-ai/qodo-ci/.github/actions/qodo-cover@v0.1.1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          model: gpt-4o
-
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          github_action_config.auto_review: "true"
-          github_action_config.auto_describe: "true" # Bật/Tắt auto describe
-          github_action_config.auto_improve: "true" # Bật/Tắt auto improve
-          github_action_config.pr_actions: '["opened", "reopened", "ready_for_review", "review_requested"]'
-
-      - name: Debug Git Repository
-        run: |
-          ls -la
-          git status
-          git remote -v
+      
+name: PR Agent action step
+      id: pragent
+      uses: duypk-apero/pr-agent@main
+      env:
+        OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
