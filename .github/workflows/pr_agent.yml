@@ -13,7 +13,7 @@ jobs:
 
       - name: Run Qodo Merge Tools
         env:
-          OPENAI_KEY: ${{ secrets.OPENAI_KEY }} # Thêm OpenAI key vào repository secrets
+          OPENAI_KEY: "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" # Thêm OpenAI key vào repository secrets
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} # Thêm GitHub token vào repository secrets
           github_action_config.auto_review: "true" # Bật/Tắt auto review
           github_action_config.auto_describe: "true" # Bật/Tắt auto describe
