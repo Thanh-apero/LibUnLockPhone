@@ -16,8 +16,6 @@ jobs:
       - name: PR Agent action step
         id: pragent
         uses: duypk-apero/pr-agent@main
-        with:
-          model: "google_ai_studio/gemini-1.5-flash"
         env:
           OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
