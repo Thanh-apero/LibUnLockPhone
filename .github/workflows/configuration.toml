@@ -1,0 +1,8 @@
+# configuration.toml
+
+[config]
+model = "google_ai_studio/gemini-1.5-flash"
+fallback_models = ["google_ai_studio/gemini-1.5-flash"]
+
+[google_ai_studio]
+gemini_api_key = "AIzaSyB_59fjCUN_vGW8FnPf5CZdl267_yfiOBs"
