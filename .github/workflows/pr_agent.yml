@@ -15,14 +15,16 @@ jobs:
   run-qodo-cover:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3  # Thêm bước này
-
-      - name: Run qodo-cover
+      - name: qodo-cover
         uses: qodo-ai/qodo-ci/.github/actions/qodo-cover@v0.1.1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GIT_TOKEN }}
           model: gpt-4o
 
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - name: Debug Git Repository
+        run: |
+          ls -la
+          git status
+          git remote -v
