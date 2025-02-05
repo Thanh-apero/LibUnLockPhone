@@ -16,5 +16,5 @@ jobs:
         id: pragent
         uses: Thanh-apero/pr-agent@main
         env:
-          OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+          GEMINI_API_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
