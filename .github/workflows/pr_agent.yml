@@ -29,6 +29,9 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           github_action_config.auto_review: "true"
+          github_action_config.auto_describe: "true" # Bật/Tắt auto describe
+          github_action_config.auto_improve: "true" # Bật/Tắt auto improve
+          github_action_config.pr_actions: '["opened", "reopened", "ready_for_review", "review_requested"]'
 
       - name: Debug Git Repository
         run: |
