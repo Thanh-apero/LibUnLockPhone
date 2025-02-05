@@ -16,12 +16,12 @@ import com.example.unLockPhone.R
 
 @SuppressLint("ClickableViewAccessibility")
 class UnLockPhone @JvmOverloads constructor(
-    context: Context,
-    attrs: AttributeSet? = null,
+                    context: Context,
+         attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
-    private val maxPassword = 6
+    private val MaxPassword = 6
     private val numberButtons = mutableMapOf<ButtonPasswords, Rect>()
     private val passwords = mutableListOf<ButtonPasswords>()
     private var circleColor: Int
@@ -42,11 +42,12 @@ class UnLockPhone @JvmOverloads constructor(
     private val textNumberPaint = Paint()
     private val textPaintTitle = Paint()
     private var vectorDelete: Drawable? = null
-    private var vectorPinUnSelect: Drawable? = null
+    private var  vectorPinUnSelect: Drawable? = null
     private var vectorPinSelect: Drawable? = null
     private var frameKeyboardWidth = 0
-    private var frameKeyboardHeight = 0
-    private var framePasswordHideWidth = 0
+    private var  frameKeyboardHeight = 0
+    private var    framePasswordHideWidth = 0
+
     private var framePasswordHideHeight = 0
 
     init {
@@ -62,8 +63,8 @@ class UnLockPhone @JvmOverloads constructor(
         circleColor = typedArray.getColor(R.styleable.UnlockActivity_circleColor, Color.parseColor("#548EFF"))
         borderColor = typedArray.getColor(R.styleable.UnlockActivity_borderColor, Color.parseColor("#6FA0FF"))
         textColor = typedArray.getColor(R.styleable.UnlockActivity_textColor, Color.WHITE)
-        textSizeNumber = typedArray.getDimension(R.styleable.UnlockActivity_textNumberSize, 100f)
-        textSizeTitle = typedArray.getDimension(R.styleable.UnlockActivity_textTitleSize, 50f)
+        textSizeNumber = typedArray.getDimension(R.styleable.UnlockActivity_textNumberSize, resources.getDimension(R.dimen.size_medium))
+        textSizeTitle = typedArray.getDimension(R.styleable.UnlockActivity_textTitleSize, resources.getDimension(R.dimen.size_small))
         circleRadius = typedArray.getDimension(R.styleable.UnlockActivity_circleRadius, 80f)
         circlePasswordWidth = typedArray.getDimension(R.styleable.UnlockActivity_circlePasswordWidth, 30f).toInt()
         circlePasswordHeight = typedArray.getDimension(R.styleable.UnlockActivity_circlePasswordHeight, 30f).toInt()
