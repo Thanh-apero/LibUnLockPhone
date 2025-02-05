@@ -27,6 +27,7 @@ jobs:
           model: gpt-4o
 
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           github_action_config.auto_review: "true"
           github_action_config.auto_describe: "true" # Bật/Tắt auto describe
