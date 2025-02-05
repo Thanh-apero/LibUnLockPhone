@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: PR Agent action step
         id: pragent
-        uses: Thanh-apero/pr-agent@main
+        uses: duypk-apero/pr-agent@main
         env:
           GEMINI_API_KEY: ${{ secrets.OPENAI_KEY }}
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
